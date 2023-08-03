@@ -4,4 +4,5 @@ from typing import List
 
 
 def sum_mixed_list(mxd_lst: List[int, float] = []) -> float:
+    """returns sum of mixed list"""
     return sum(mxd_lst)
