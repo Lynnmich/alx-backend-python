@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""Function that takes an integer & returns a asyncio.Task"""
+"""Function that takes an integer & returns a asyncio.Task"""
 import time
 import asyncio
 
