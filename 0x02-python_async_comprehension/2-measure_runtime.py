@@ -9,7 +9,6 @@ async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 async def measure_runtime() -> float:
     """Returns the total runtime for four asynchronous comprehension"""
-    start = time.perf_couter()
-    result = await asyncio.gather(*(async_comprehension() for _ in range(4)))
-    total_time = time.perf_counter() - start
-    return total_time
+    start = time()
+    await asyncio.gather(*(async_comprehension() for i in range(4)))
+    return time() - start
