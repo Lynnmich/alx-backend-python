@@ -2,7 +2,8 @@
 """ Unit test for utils.access_nested_map """
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map, get_json
+from unittest.mock import patch, Mock
+from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -38,7 +39,7 @@ class TestGetJson(unittest.TestCase):
         class Mocke(Mock):
             """Mocke class that inherits from Mock"""
             def json(self):
-                """Retruns payload"""
+                """Returns payload"""
                 return payload
 
         with patch("requests.get") as mock_req:
