@@ -35,8 +35,14 @@ class TestGetJson(unittest.TestCase):
     ])
     def test_get_json(self, url, payload):
         """this method to test and returns the expected result"""
+        class Mocke(Mock):
+            """Mocke class that inherits from Mock"""
+            def json(self):
+                """Retruns payload"""
+                return payload
+
         with patch("requests.get") as mock_req:
-            mock.return_value = Mocke()
+            mock_req.return_value = Mocke()
             self.assertEqual(get_json(url), payload)
 
 
