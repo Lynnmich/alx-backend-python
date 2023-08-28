@@ -36,13 +36,14 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, url, payload):
         """this method to test and returns the expected result"""
         with patch("requests.get") as mock_req:
+            mock.return_value = Mocke()
+            self.assertEqual(get_json(url), payload)
 
 
 class TestMemoize(unittest.TestCase):
     """this class is implemented using the test_memoize method"""
     def test_memoize(self):
         """memoize test"""
-
 
         class TestClass:
             """Test class"""
