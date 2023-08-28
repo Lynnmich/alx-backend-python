@@ -41,7 +41,7 @@ class TestGithubOrgClient(unittest.TestCase):
             mocked_public.return_value = "world"
             response = GithubOrgClient('test').public_repos()
 
-            self.assertEqual(response, ["Google", "TT"])
+            self.assertEqual(response, ["Google", "GitHub"])
 
             mocked_public.assert_called_once()
             mocked_method.assert_called_once()
