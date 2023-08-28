@@ -30,7 +30,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(response, result.get("repos_url"))
 
     @patch("client.get_json")
-        def test_public_repos(self, mocked_method):
+    def test_public_repos(self, mocked_method):
         """unittest public repos"""
         payload = [{"org_name": "Google"}, {"org_name": "GitHub"}]
         mocked_method.return_value = payload
