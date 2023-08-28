@@ -3,6 +3,10 @@
 import unittest
 from unittest import mock
 from client import GithubOrgClient
+from unittest.mock import patch, Mock, PropertyMock
+from urllib import response
+from fixtures import TEST_PAYLOAD
+from parameterized import parameterized, parameterized_class
 
 
 class TestGithubOrgClient(unittest.TestCase):
