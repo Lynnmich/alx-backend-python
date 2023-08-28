@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """A class that implements the test_org method"""
 import unittest
+from unittest import mock
+from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
