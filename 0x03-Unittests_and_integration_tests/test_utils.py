@@ -9,19 +9,19 @@ class TestAccessNestedMap(unittest.TestCase):
     """this class inherits from unittest.Testcase"""
 
     @parameterized.expand([
-        ({"a": 1}, ("a",))
-        ({"a": {"b": 2}}, ("a",))
-        ({"a": {"b": 2}}, ("a", "b"))
+        ({"a": 1}, ("a",), 1),
+        ({"a": {"b": 2}}, ("a",), {"b": 2}),
+        ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(self, nested_map, path, result):
         """this method tests the access_nested_map function"""
         self.assertEqual(access_nested_map(nested_map, path), result)
 
     @parameterized.expand([
-        ({}, ("a",))
+        ({}, ("a",)),
         ({"a": 1}, ("a", "b"))
     ])
     def test_access_nested_map_exception(self, nested_map, path):
-        """this method tests and raises an exceeption"""
-        with self.assertRaises(Exception) as ex:
+        """this method tests keyError and raises an exceeption"""
+        with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
