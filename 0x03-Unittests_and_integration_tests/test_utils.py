@@ -2,7 +2,7 @@
 """ Unit test for utils.access_nested_map """
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map
+from utils import access_nested_map, get_json
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -25,3 +25,14 @@ class TestAccessNestedMap(unittest.TestCase):
         """this method tests keyError and raises an exceeption"""
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """this class and implement the method that returns the expected result"""
+    @parameterized.expand([
+       ("http://example.com", {"payload": True}),
+       ("http://holberton.io", {"payload": False})
+    ])
+    def test_get_json(self, url, payload):
+        """this method to test and returns the expected result"""
+        with patch("requests.get") as mock_req:
